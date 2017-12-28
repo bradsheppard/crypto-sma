@@ -1,0 +1,29 @@
+{
+  "name": "crypto-sma",
+  "version": "0.1.0",
+  "description": "Calculate the SMA (Simple Moving Average) of crypto currencies.",
+  "keywords": [
+    "api",
+    "bitcoin",
+    "cryptocurrency",
+    "ethereum",
+    "price"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel lib --out-dir dist",
+    "start": "npm run-script build; node dist/tester.js",
+    "test": "mocha dist/test"
+  },
+  "author": "Brad Sheppard <bradsheppard22@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cryptocompare": "^0.3.0",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "mocha": "^4.0.1"
+  }
+}
