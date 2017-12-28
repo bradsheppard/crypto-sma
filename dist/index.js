@@ -16,12 +16,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 global.fetch = _nodeFetch2.default;
 
-async function getCurrentPrice(coin, currency) {
+async function currentPrice(coin, currency) {
     var result = await _cryptocompare2.default.priceMulti([coin], [currency]);
     return result[coin][currency].toFixed(4);
 }
 
-async function getMovingAverage(coin, currency, options) {
+async function movingAverage(coin, currency, options) {
     var days = options.days,
         offset = options.offset;
 
@@ -39,14 +39,18 @@ async function getMovingAverage(coin, currency, options) {
     return (sum / result.length).toFixed(4);
 }
 
-async function getMovingAverageDelta(coin, currency, lowDays, highDays) {
-    var results = [await getMovingAverage(coin, currency, { days: lowDays }), await getMovingAverage(coin, currency, { days: highDays })];
+async function movingAverageDelta(coin, currency, options) {
+    var interval1 = options.interval1,
+        interval2 = options.interval2,
+        offset = options.offset;
+
+    var results = [await movingAverage(coin, currency, { days: interval1, offset: offset }), await movingAverage(coin, currency, { days: interval2, offset: offset })];
 
     return (results[0] - results[1]).toFixed(4);
 }
 
 exports.default = {
-    getCurrentPrice: getCurrentPrice,
-    getMovingAverage: getMovingAverage,
-    getMovingAverageDelta: getMovingAverageDelta
+    currentPrice: currentPrice,
+    movingAverage: movingAverage,
+    movingAverageDelta: movingAverageDelta
 };

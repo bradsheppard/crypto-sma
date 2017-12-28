@@ -13,7 +13,7 @@
   "scripts": {
     "build": "babel lib --out-dir dist",
     "start": "npm run-script build; node dist/tester.js",
-    "test": "mocha dist/test"
+    "test": "mocha -t 8000 dist/test"
   },
   "author": "Brad Sheppard <bradsheppard22@gmail.com>",
   "license": "MIT",

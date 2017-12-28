@@ -13,15 +13,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 describe('Tests', function () {
     describe('getCurrentPrice', function () {
         it('It should return a price', async function () {
-            var result = await _index2.default.getCurrentPrice('BTC', 'CAD');
+            var result = await _index2.default.currentPrice('BTC', 'CAD');
             _assert2.default.equal(true, result > 0);
         });
     });
 
     describe('getMovingAverage', function () {
         it('It should return a number', async function () {
-            var result = await _index2.default.getMovingAverage('BTC', 'CAD', { limit: 5 });
+            var result = await _index2.default.movingAverage('BTC', 'CAD', { limit: 5 });
             _assert2.default.equal(true, result > 0);
         });
     });
-});
+}).timeout(5000);
