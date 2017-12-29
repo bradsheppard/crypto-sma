@@ -9,6 +9,7 @@
     "ethereum",
     "price"
   ],
+  "homepage": "https://github.com/bradsheppard/crypto-sma",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel lib --out-dir dist",
