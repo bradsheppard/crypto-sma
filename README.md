@@ -4,7 +4,7 @@ crypto-sma
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 
-[npm-image]https://badge.fury.io/js/crypto-sma.svg
+[npm-image]: https://badge.fury.io/js/crypto-sma.svg
 [npm-url]: https://www.npmjs.com/package/crypto-sma
 [travis-image]: https://travis-ci.org/bradsheppard/crypto-sma.svg?branch=master
 [travis-url]: https://travis-ci.org/bradsheppard/crypto-sma
