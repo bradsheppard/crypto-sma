@@ -1,6 +1,6 @@
 {
   "name": "crypto-sma",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Calculate the SMA (Simple Moving Average) of crypto currencies.",
   "keywords": [
     "api",
@@ -10,6 +10,10 @@
     "price"
   ],
   "homepage": "https://github.com/bradsheppard/crypto-sma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bradsheppard/crypto-sma.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel lib --out-dir dist",
