@@ -1,6 +1,6 @@
 {
   "name": "crypto-sma",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Calculate the SMA (Simple Moving Average) of crypto currencies.",
   "keywords": [
     "api",
