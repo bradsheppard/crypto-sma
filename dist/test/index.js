@@ -24,4 +24,4 @@ describe('Tests', function () {
             _assert2.default.equal(true, result > 0);
         });
     });
-}).timeout(5000);
+});

@@ -17,7 +17,7 @@ var getMovingAverage = async function getMovingAverage() {
 };
 
 var getMovingAverageDelta = async function getMovingAverageDelta() {
-    var result = await _index2.default.movingAverageDelta('BTC', 'CAD', 5, 15);
+    var result = await _index2.default.movingAverageDelta('BTC', 'CAD', { interval1: 5, interval2: 15 });
     console.log('Moving average delta: ' + result);
 };
 

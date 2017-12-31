@@ -1,9 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _cryptocompare = require('cryptocompare');
 
 var _cryptocompare2 = _interopRequireDefault(_cryptocompare);
@@ -49,7 +45,7 @@ async function movingAverageDelta(coin, currency, options) {
     return (results[0] - results[1]).toFixed(4);
 }
 
-exports.default = {
+module.exports = {
     currentPrice: currentPrice,
     movingAverage: movingAverage,
     movingAverageDelta: movingAverageDelta
