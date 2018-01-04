@@ -24,7 +24,8 @@
   "license": "MIT",
   "dependencies": {
     "cryptocompare": "^0.3.0",
-    "node-fetch": "^1.7.3"
+    "node-fetch": "^1.7.3",
+    "stats-lite": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
