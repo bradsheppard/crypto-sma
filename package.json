@@ -1,13 +1,15 @@
 {
   "name": "crypto-sma",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "Calculate the SMA (Simple Moving Average) of crypto currencies.",
   "keywords": [
     "api",
     "bitcoin",
     "cryptocurrency",
     "ethereum",
-    "price"
+    "price",
+    "moving average",
+    "bollinger band"
   ],
   "homepage": "https://github.com/bradsheppard/crypto-sma",
   "repository": {
@@ -18,7 +20,7 @@
   "scripts": {
     "build": "babel lib --out-dir dist",
     "start": "npm run-script build; node dist/tester.js",
-    "test": "mocha -t 8000 dist/test"
+    "test": "npm run-script build; mocha -t 8000 dist/test"
   },
   "author": "Brad Sheppard <bradsheppard22@gmail.com>",
   "license": "MIT",

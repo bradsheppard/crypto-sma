@@ -1,26 +1,28 @@
 'use strict';
 
-var _index = require('./index');
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var cryptoMonitor = require('./index');
 
 var getPrice = async function getPrice() {
-    var result = await _index2.default.currentPrice('BTC', 'CAD');
+    var result = await cryptoMonitor.currentPrice('BTC', 'CAD');
     console.log('Price: ' + result);
 };
 
 var getMovingAverage = async function getMovingAverage() {
-    var result = await _index2.default.movingAverage('BTC', 'CAD', { days: 4 });
+    var result = await cryptoMonitor.movingAverage('BTC', 'CAD', { days: 4 });
     console.log('Moving average: ' + result);
 };
 
-var getMovingAverageDelta = async function getMovingAverageDelta() {
-    var result = await _index2.default.movingAverageDelta('BTC', 'CAD', { interval1: 5, interval2: 15 });
-    console.log('Moving average delta: ' + result);
+var getUpperBollingerBand = async function getUpperBollingerBand() {
+    var result = await cryptoMonitor.upperBollingerBand('BTC', 'CAD', { days: 4, offset: 2, k: 2 });
+    console.log('Upper Bollinger band: ' + result);
+};
+
+var getLowerBollingerBand = async function getLowerBollingerBand() {
+    var result = await cryptoMonitor.lowerBollingerBand('BTC', 'CAD', { days: 4, offset: 2, k: 2 });
+    console.log('Lower Bollinger band: ' + result);
 };
 
 getPrice();
 getMovingAverage();
-getMovingAverageDelta();
+getUpperBollingerBand();
+getLowerBollingerBand();
