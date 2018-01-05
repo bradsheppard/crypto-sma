@@ -17,17 +17,15 @@ Install
 
 Usage
 -----
-crypto-sma is a node module for calculating the SMA (Simple Moving Average) of a crypto currency over
-a specified number of days. It also includes a function to return the delta of SMAs over differs ent intervals.
-This node module depends on the cryptocompare node module and wraps much of that functionality in async functions,
-so callbacks and promises are not required.
+crypto-sma is a node module for calculating the SMA (Simple Moving Average) and Bollinger Bands of a crypto currency over
+a specified number of days. This node module module uses async function, and as such, requires a version of Node.js supporting this.
 
 
 ### Methods
 
 ### `currentPrice()`
 
-Get the current list of all cryptocurrencies and the following information about each coin.
+Gets the price of the crypto currency in the specified currency.
 
 `currentPrice(coin, currency)`
 
@@ -49,7 +47,7 @@ getBitcoinPrice();
 
 ### `movingAverage()`
 
-Gets the specified SMA (Simple Moving Average) of a crypto currency.
+Calculates the specified SMA (Simple Moving Average) of a crypto currency.
 
 `movingAverage(coin, currency, options)`
 
@@ -74,19 +72,62 @@ getMovingAverage = async () => {
 getMovingAverage();
 ```
 
-### `movingAverageDelta()`
+### `upperBollingerBand()`
 
-Calculates the delta between two moving averages. For example, if we consider a bitcoin 15-day moving average
-of 20,000 and a 5 day moving average of 21,500. Then the delta returned would be 1,500.
+Calculates the upper Bollinger Band of the crypto currency based on the given number of days, offset and k value.
+(movingAverage + k * standardDeviation).
 
-`movingAverageDelta(coin, currency, options)`
-
+`upperBollingerBand(coin, currency, options)`
 - `coin` (String) Represents the symbol of the coin.
 - `currency` (String) Represents the currency to use for returning the moving average.
 - `options` (Object)
-    - `interval1` (Number) The first interval in days.
-    - `interval2` (Number) The second interval in days
-    - `offset` (Number) The offset, as explained above.
+    - `days` (Number) The number of days to use when calculating the moving average.
+    - `offset` (Number) By default the offset used will be zero, meaning the days used to calculate
+    the moving average will be up to the current day. If offset is used, the days will instead be up to the current 
+    day minus the offset.
+    - `k` (Number) The k value used for the Bollinger band calculation.
+- `Returns` (Number) The upper Bollinger Band.
+
+```js
+var cryptoSMA = require('crypto-sma');
+
+// Usage:
+var getUpperBollingerBand = async () => {
+    var result = await cryptoSMA.upperBollingerBand('BTC', 'CAD', { days: 4, offset: 2, k: 2});
+    console.log(result);
+};
+
+getUpperBollingerBand();
+```
+
+### `lowerBollingerBand()`
+
+Calculates the lower Bollinger Band of the crypto currency based on the given number of days, offset and k value.
+(movingAverage - k * standardDeviation).
+
+`lowerBollingerBand(coin, currency, options)`
+- `coin` (String) Represents the symbol of the coin.
+- `currency` (String) Represents the currency to use for returning the moving average.
+- `options` (Object)
+    - `days` (Number) The number of days to use when calculating the moving average.
+    - `offset` (Number) By default the offset used will be zero, meaning the days used to calculate
+    the moving average will be up to the current day. If offset is used, the days will instead be up to the current 
+    day minus the offset.
+    - `k` (Number) The k value used for the Bollinger band calculation.
+- `Returns` (Number) The lower Bollinger Band.
+
+```js
+var cryptoSMA = require('crypto-sma');
+
+// Usage:
+var getLowerBollingerBand = async () => {
+    var result = await cryptoSMA.lowerBollingerBand('BTC', 'CAD', { days: 4, offset: 2, k: 2});
+    console.log(result);
+};
+
+getLowerBollingerBand();
+```
+
 
 ## License
 
